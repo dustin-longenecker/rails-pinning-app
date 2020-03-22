@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :pins
 
   get "library" => "pins#index"
+  get "pins_path" => "pins#new"
+  post "pins_path" => "pins#create"
+  get "edit_pin_path" => "pins#edit"
+  put "pin_path" => "pins#update"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
