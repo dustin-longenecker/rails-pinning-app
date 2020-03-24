@@ -11,19 +11,29 @@
       <div class="pin">
         <div class="pin-header row">
           <div class="logo-thumbnail col-xs-3">
-            <% if "#{pin.category}" == "rails" %>
+            <% if "#{pin.category_id}" == "2" %>
             <%= image_tag('rails-logo-thumbnail.png') %>
-            <% elsif "#{pin.category}" == "ruby" %>
+            <% elsif "#{pin.category_id}" == "1" %>
             <%= image_tag('ruby-logo-thumbnail.png') %>
             <% end %>
           </div>
-          <div class="pin-title col-xs-9">
+          
+
+<div class="pin-title col-xs-9">
             <h4>
             <%= link_to "#{pin.title}", pin_by_name_path(slug: pin.slug) %>
+            <!-- -->
+
             </h4>
             <%= link_to "#{pin.url.truncate(30)}", "#{pin.url}", html_options = {target: "_blank", class: "url"} %>
-             
+            <form action="<%= "/pins/#{pin.id}" %>" method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <button class="btn btn-danger" type="submit">
+              Delete
+            </button>
+          </form>
           </div>
+
         </div>
         <hr/>
         <p class="text"><%= "#{pin.text}" %></p>

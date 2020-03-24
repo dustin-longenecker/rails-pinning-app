@@ -7,14 +7,14 @@ Rails.application.routes.draw do
 
   #get "pins/name-:slug" => "pins#show_by_name"
   get "pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name'  
-
   resources :pins
 
-  get "library" => "pins#index"
+  get "/library" => "pins#index"
   get "pins_path" => "pins#new"
   post "pins_path" => "pins#create"
   get "edit_pin_path" => "pins#edit"
   put "pin_path" => "pins#update"
+  delete "pin_path" => "pins#destroy"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

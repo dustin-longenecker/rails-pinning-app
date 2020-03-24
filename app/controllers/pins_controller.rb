@@ -23,9 +23,8 @@ class PinsController < ApplicationController
   #end
   def create
     @pin = Pin.create(pin_params)
-    @pin.save!
     #if @pin.save!
-      redirect_to show
+    redirect_to '/'
     #else
     #  render :new
     #end
@@ -39,6 +38,11 @@ class PinsController < ApplicationController
     @pin.update_attributes(pin_params)
     @pin.save
     redirect_to show
+  end
+
+  def destroy
+    pin = Pin.find(pin_params)
+    pin.delete
   end
   
   private
