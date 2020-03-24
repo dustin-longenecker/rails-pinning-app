@@ -17,5 +17,11 @@
 	</div>
 	<div class="form-group">
 		<%= f.submit(class: "btn btn-default")%>
+		<form action="<%= "/pins/#{@pin.id}" %>" method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <button class="btn btn-danger" type="submit">
+              Delete
+            </button>
+          </form>
 	</div>
 <% end %>
