@@ -48,10 +48,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 3'
 
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+  gem 'meta_request'
 end
 
 group :test do
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

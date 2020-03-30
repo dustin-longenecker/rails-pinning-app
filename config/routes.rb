@@ -6,15 +6,20 @@ Rails.application.routes.draw do
   root 'pins#index'
 
   #get "pins/name-:slug" => "pins#show_by_name"
-  get "pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name'  
-  resources :pins
+  get "pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name' 
 
+  resources :pins
+  #READ
   get "/library" => "pins#index"
+  #CREATE
   get "pins_path" => "pins#new"
   post "pins_path" => "pins#create"
+  #UPDATE
   get "edit_pin_path" => "pins#edit"
   put "pin_path" => "pins#update"
-  delete "pin_path" => "pins#destroy"
+  #DELETE
+  #### BUGS #####
+  delete "/pins/:id" => "pins#destroy"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

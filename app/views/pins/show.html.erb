@@ -5,6 +5,7 @@
   </h1>
 </div>
 <div class="show-pin">
+  <p><%= "#{@pin.id}"%></p>
   <p><%= "#{@pin.text}" %></p>
   <hr/>
   <p>
@@ -12,12 +13,16 @@
     
     <%= link_to "#{@pin.url.truncate(30)}", "#{@pin.url}", html_options = {target: "_blank", class: "url"} %>
   </p>
-  <form action="<%= "/pins/#{@pin.id}" %>" method="post">
+  <p>
+    <!-- DELETE BUTTON -->
+    <form action="<%= "/pins/#{pin.id}" %>" method="post">
             <input type="hidden" name="_method" value="delete" />
             <button class="btn btn-danger" type="submit">
               Delete
             </button>
           </form>
+  </p>
+  
 </div>
 <br/>
 <a href="/">

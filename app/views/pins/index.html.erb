@@ -4,6 +4,7 @@
 </div>
 <hr/>
 <div class="pins">
+  <%= link_to "CREATE", "/pins/new" %>
   <% @pins.each_slice(3) do |row| %>
   <div class="row">
     <% row.each do |pin| %>
@@ -17,21 +18,28 @@
             <%= image_tag('ruby-logo-thumbnail.png') %>
             <% end %>
           </div>
-          
-
 <div class="pin-title col-xs-9">
             <h4>
             <%= link_to "#{pin.title}", pin_by_name_path(slug: pin.slug) %>
             <!-- -->
-
             </h4>
             <%= link_to "#{pin.url.truncate(30)}", "#{pin.url}", html_options = {target: "_blank", class: "url"} %>
-            
           </div>
 
         </div>
         <hr/>
         <p class="text"><%= "#{pin.text}" %></p>
+            <%= pin.id %>
+            <%= link_to "EDIT", "/pins/#{pin.id}/edit" %>
+
+            
+            <form action="<%= "/pins/#{pin.id}"%>"method="post" >
+            <input type="hidden" name="_method" value="delete" />
+            <button class="btn btn-danger" type="submit">
+              Delete
+            </button>
+          </form>
+
       </div>
     </div>
     <% end %>
