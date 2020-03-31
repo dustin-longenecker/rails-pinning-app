@@ -14,29 +14,18 @@ class PinsController < ApplicationController
   def new
      @pin = Pin.new  
   end
-  # def create    
-  #   @pin = Pin.create(pin_params)
-  #   @pin.slug = create_slug(@pin)
-  #   @pin.save
-  #   if !@pin.id.nil?
-  #     render :new
-  #   else
-  #   @errors = @pin.errors
-  #   render :new
-  #   end
-  # end
 
   def create
-  @pin = Pin.create(pin_params)
-  @pin.slug = create_slug(@pin)
-  @pin.save
-  if @pin.persisted?
-    redirect_to @pin
-  else
-    @errors = @pin.errors
-    render :new
+    @pin = Pin.create(pin_params)
+    @pin.slug = create_slug(@pin)
+    @pin.save
+    if @pin.persisted?
+      redirect_to @pin
+    else
+      @errors = @pin.errors
+      render :new
+    end
   end
-end
 #UPDATE
   def edit
     @pin = Pin.find(params[:id])
@@ -55,8 +44,10 @@ end
 #DESTROY
   def destroy
     #@pin.delete(pin_params)
-    #@pin.destroy(pin_params)
-    #redirect_to root_path
+    pin = Pin.find(params[:id])
+    pin.destroy
+    #pin.destroy(pin_params)
+    redirect_to root_path, :notice => "Your ppin has been deleted"
   end
 #PRIVATE METHODS  
   private

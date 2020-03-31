@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :pins
   #READ
-  get "/library" => "pins#index"
+  get "library" => "pins#index"
   #CREATE
   get "pins_path" => "pins#new"
   post "pins_path" => "pins#create"

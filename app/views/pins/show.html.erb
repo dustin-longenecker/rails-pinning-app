@@ -1,6 +1,6 @@
 <div class="header">
   <h1>
-  <i class="fa fa-laptop"></i>
+  <a href="/"><i class="fa fa-laptop"></i></a>
   <%= "#{@pin.title}" %>
   </h1>
 </div>
@@ -13,16 +13,15 @@
     
     <%= link_to "#{@pin.url.truncate(30)}", "#{@pin.url}", html_options = {target: "_blank", class: "url"} %>
   </p>
-  <p>
     <!-- DELETE BUTTON -->
-    <form action="<%= "/pins/#{pin.id}" %>" method="post">
-            <input type="hidden" name="_method" value="delete" />
-            <button class="btn btn-danger" type="submit">
-              Delete
-            </button>
-          </form>
-  </p>
-  
+    
+    <%= form_with model: @pin, url: "/pins/#{@pin.id}", method: "delete" do |f| %>
+      <div class="form-group">
+        <%= submit_tag("Delete", class: "btn btn-default pinterest-theme-button") %>
+        <%= f.submit :Delete, class: "btn btn-default pinterest-theme-button"%>
+        
+      </div>
+      <% end %>
 </div>
 <br/>
 <a href="/">
