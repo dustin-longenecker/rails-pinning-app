@@ -5,6 +5,9 @@
   </h1>
 </div>
 <div class="show-pin">
+  <% if @pin.image %>
+    <img src="<%= @pin.image(:medium) %>">
+    <% end %>
   <p><%= "#{@pin.id}"%></p>
   <p><%= "#{@pin.text}" %></p>
   <hr/>
@@ -13,15 +16,14 @@
     
     <%= link_to "#{@pin.url.truncate(30)}", "#{@pin.url}", html_options = {target: "_blank", class: "url"} %>
   </p>
-    <!-- DELETE BUTTON -->
-    
-    <%= form_with model: @pin, url: "/pins/#{@pin.id}", method: "delete" do |f| %>
-      <div class="form-group">
-        <%= submit_tag("Delete", class: "btn btn-default pinterest-theme-button") %>
-        <%= f.submit :Delete, class: "btn btn-default pinterest-theme-button"%>
-        
-      </div>
-      <% end %>
+
+  <!-- DELETE BUTTON -->
+  
+  <%= form_with model: @pin, url: "/pins/#{@pin.id}", method: "delete" do |f| %>
+  <div class="form-group">
+    <%= f.submit :Delete, class: "btn btn-default pinterest-theme-button"%>
+  </div>
+  <% end %>
 </div>
 <br/>
 <a href="/">

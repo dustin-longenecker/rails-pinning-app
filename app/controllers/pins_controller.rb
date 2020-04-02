@@ -53,7 +53,7 @@ class PinsController < ApplicationController
   private
   #pin_params
   def pin_params
-    params.require(:pin).permit(:title, :url, :slug, :text, :category_id)
+    params.require(:pin).permit(:title, :url, :slug, :text, :category_id, :image)
   end
   #generate slug
   def create_slug(pin)
