@@ -1,9 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  heroku config:set S3_BUCKET_NAME="my-pins"
-heroku config:set AWS_ACCESS_KEY_ID="AKIAIFRJ52MCVDABIBJQ"
-heroku config:set AWS_SECRET_ACCESS_KEY="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"
-heroku config: set AWS_REGION="us-east-2"
+  
   config.paperclip_defaults = {
 
   :storage => :s3,
