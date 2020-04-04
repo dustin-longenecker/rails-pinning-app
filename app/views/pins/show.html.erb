@@ -5,8 +5,11 @@
   </h1>
 </div>
 <div class="show-pin">
-  <% if @pin.image %>
-    <img src="<%= @pin.image(:medium) %>">
+  <% if @pin.image.url.nil? %>
+    <p>ERROR</p>
+    <% else %>
+    <img src="<%= @pin.image.url(:original) %>">
+    <%= image_tag(@pin.image.url(:original)) %>
     <% end %>
   <p><%= "#{@pin.id}"%></p>
   <p><%= "#{@pin.text}" %></p>
