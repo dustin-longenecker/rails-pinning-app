@@ -32,9 +32,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Puma as the web server
 gem 'puma'
 
-gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
+#gem 'paperclip'
+#gem 'aws-sdk', '< 2.0'
 gem 'aws-sdk-s3'
+gem "kt-paperclip", "~> 6.2.0"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

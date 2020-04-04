@@ -8,7 +8,9 @@ Rails.application.configure do
     :bucket => "my-pins",
     :access_key_id => "AKIAIFRJ52MCVDABIBJQ",
     :secret_access_key => "hHxw0e6pMpP2jtlwN3TFJAoYeGBtHO3hWTQfmSxk"
-  }
+  },
+  :s3_host_name => 's3.us-east-2.amazonaws.com'
+
 }
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

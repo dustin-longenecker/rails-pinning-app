@@ -45,8 +45,6 @@ GEM
     arel (9.0.0)
     aws-eventstream (1.0.3)
     aws-partitions (1.294.0)
-    aws-sdk (1.67.0)
-      aws-sdk-v1 (= 1.67.0)
     aws-sdk-core (3.92.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -59,9 +57,6 @@ GEM
       aws-sdk-core (~> 3, >= 3.83.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
-    aws-sdk-v1 (1.67.0)
-      json (~> 1.4)
-      nokogiri (~> 1)
     aws-sigv4 (1.1.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
     bindex (0.8.1)
@@ -102,6 +97,12 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.6)
     json (1.8.6-java)
+    kt-paperclip (6.2.2)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      mime-types
+      mimemagic (~> 0.3.0)
+      terrapin (~> 0.6.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -137,12 +138,6 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x86-mingw32)
       mini_portile2 (~> 2.4.0)
-    paperclip (6.1.0)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      mime-types
-      mimemagic (~> 0.3.0)
-      terrapin (~> 0.6.0)
     pg (1.1.4)
     pg (1.1.4-x64-mingw32)
     pg (1.1.4-x86-mingw32)
@@ -275,7 +270,6 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
-  aws-sdk (< 2.0)
   aws-sdk-s3
   bootsnap (>= 1.1.0)
   byebug
@@ -283,9 +277,9 @@ DEPENDENCIES
   database_cleaner
   jbuilder (~> 2.8)
   jquery-rails
+  kt-paperclip (~> 6.2.0)
   listen (>= 3.0.5, < 3.2)
   meta_request
-  paperclip
   pg (~> 1.1.4)
   puma
   rails (= 5.2.2)
