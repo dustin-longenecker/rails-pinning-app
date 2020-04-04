@@ -20,6 +20,7 @@
   </p>
 
   <!-- DELETE BUTTON -->
+  <%= link_to "EDIT", "/pins/#{@pin.id}/edit" %>
   
   <%= form_with model: @pin, url: "/pins/#{@pin.id}", method: "delete" do |f| %>
   <div class="form-group">
