@@ -1,13 +1,16 @@
 require 'spec_helper'
+require 'rspec-rails'
 RSpec.describe PinsController do
-  it 'renders the index template' do
-    get :library
-    expect(response).to render_template("index")
-  end
+  describe "GET index" do
+    it 'renders the index template' do
+      get :library
+      expect(response).to render_template("index")
+    end
 
-  it 'populates @pins with all pins' do
-    get :index
-    expect(assigns[:pins]).to eq(Pin.all)
+    it 'populates @pins with all pins' do
+      get :index
+      expect(assigns[:pins]).to eq(Pin.all)
+    end
   end
 
 
