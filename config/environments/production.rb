@@ -86,12 +86,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  heroku config:set S3_BUCKET_NAME=my-pins
-  heroku config:set AWS_ACCESS_KEY_ID=AKIAIFRJ52MCVDABIBJQ
-  heroku config:set AWS_SECRET_ACCESS_KEY=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
+  
 
 
   config.paperclip_defaults = {
+  heroku config:set S3_BUCKET_NAME=my-pins
+  heroku config:set AWS_ACCESS_KEY_ID=AKIAIFRJ52MCVDABIBJQ
+  heroku config:set AWS_SECRET_ACCESS_KEY=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
   :storage => :s3,
   :s3_region => ENV['AWS_REGION'],
   :s3_credentials => {
