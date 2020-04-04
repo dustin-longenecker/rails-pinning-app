@@ -8,8 +8,8 @@
   <% if @pin.image.url.nil? %>
     <p>ERROR</p>
     <% else %>
-    <img src="<%= @pin.image.url %>">
-    <%= image_tag(@pin.image.url) %>
+    <img src="<%= @pin.image.url(:medium) %>">
+    <%= image_tag(@pin.image.url(:medium)) %>
     <% end %>
   <p><%= "#{@pin.id}"%></p>
   <p><%= "#{@pin.text}" %></p>
