@@ -22,24 +22,31 @@
             <h4>
             <%= link_to "#{pin.title}", pin_by_name_path(slug: pin.slug) %>
             <!-- -->
-    <%= image_tag(pin.image.url(:medium)) %>
-
-
             </h4>
-            <%= link_to "#{pin.url.truncate(30)}", "#{pin.url}", html_options = {target: "_blank", class: "url"} %>
           </div>
         </div>
-        <hr/>
-        <p class="text"><%= "#{pin.text}" %></p>
-        <%= pin.id %>
-        <%= link_to "EDIT", "/pins/#{pin.id}/edit" %>
-        
-        
-        <%= form_with model: pin, url: "/pins/#{pin.id}", method: "delete" do |f| %>
-        <div class="form-group">
-          <%= f.submit :Delete, class: "btn btn-default pinterest-theme-button"%>
+        <div class="pin-image row">
+          <figure class="figure col-xs-12 figure-img">
+            <%= image_tag(pin.image.url(:medium), class: "figure-img img-fluid") %>
+            <%= link_to "#{pin.url.truncate(30)}", "#{pin.url}", html_options = {target: "_blank", class: "url figure-caption"} %>
+          </figure>
         </div>
-        <% end %>
+        <hr/>
+          <p class="text"><%= "#{pin.text}" %></p>
+
+        <div class="pin-options row">
+          <%= pin.id %>
+          <%= link_to "EDIT", "/pins/#{pin.id}/edit" %>
+          
+          
+          <%= form_with model: pin, url: "/pins/#{pin.id}", method: "delete" do |f| %>
+          <div class="form-group">
+            <%= f.submit :Delete, class: "btn btn-default pinterest-theme-button"%>
+          </div>
+          <% end %>
+        </div>
+        
+        
       </div>
     </div>
     <% end %>
