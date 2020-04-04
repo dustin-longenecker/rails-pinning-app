@@ -4,8 +4,8 @@ Pin.create(
   text: "The trusted standard in self-directed introductions to Ruby on Rails. A complete treatment of all the essentials
     required in most production Rails applications.", 
   slug: "rails-tutorial",
-  resource_type: "rails"),
-  content_type: ''
+  resource_type: "rails")
+  
 Pin.create(
   title: 'Rails for Zombies', 
   url: 'http://railsforzombies.org', 
