@@ -1,7 +1,15 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  Paperclip.options[:command_path] = "/usr/local/bin/"
-
+  Paperclip.options[:command_path] = "/usr/local/bin/convert"
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_region => 'us-east-2',
+  :s3_credentials => {
+    :bucket => "my-pins",
+    :access_key_id => "AKIAIFRJ52MCVDABIBJQ",
+    :secret_access_key => "hHxw0e6pMpP2jtlwN3TFJAoYeGBtHO3hWTQfmSxk"
+  }
+}
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -59,13 +67,5 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_region => 'us-east-2',
-  :s3_credentials => {
-    :bucket => "my-pins",
-    :access_key_id => "AKIAIFRJ52MCVDABIBJQ",
-    :secret_access_key => "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"
-  }
-}
+  
 end

@@ -1,5 +1,21 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  heroku config:set S3_BUCKET_NAME="my-pins"
+heroku config:set AWS_ACCESS_KEY_ID="AKIAIFRJ52MCVDABIBJQ"
+heroku config:set AWS_SECRET_ACCESS_KEY="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"
+heroku config: set AWS_REGION="us-east-2"
+  config.paperclip_defaults = {
+
+  :storage => :s3,
+  :s3_region => ENV['AWS_REGION'],
+  :s3_credentials => {
+    :bucket => ENV['S3_BUCKET_NAME'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+  
+
+}
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -39,7 +55,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -89,15 +105,5 @@ Rails.application.configure do
   
 
 
-  config.paperclip_defaults = {
-
-  :storage => :s3,
-  :s3_region => ENV['AWS_REGION'],
-  :s3_credentials => {
-    :bucket => ENV['S3_BUCKET_NAME'],
-    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  }
-
-}
+  
 end
