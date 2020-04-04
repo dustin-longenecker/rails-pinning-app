@@ -18,7 +18,6 @@ class PinsController < ApplicationController
   def create
     @pin = Pin.create(pin_params)
     @pin.slug = create_slug(@pin)
-    #@pin.image.url = change_image_endpoint(@pin)
     @pin.save
     if @pin.persisted?
       redirect_to @pin
@@ -61,10 +60,6 @@ class PinsController < ApplicationController
     pin_slug = pin.title.downcase.parameterize(separator: "-")
     pin_slug
   end
-  def change_image_endpoint(pin)
-    image_end_point = "my-pins."
-     new_url = image_end_point + (pin.image.url[1..-2])
-     new_url
-  end
+  
 end
 
