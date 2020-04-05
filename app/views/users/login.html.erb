@@ -1,0 +1,6 @@
+<h2>LOGIN</h2>
+<%= form_tag "/login" %>
+<%= text_field_tag 'email', 'email', maxlength: 99, size: 20, class: "form-grp" %>
+<%= text_field_tag 'password', 'password', maxlength: 15, size: 20, class: "form-grp" %>
+<%= submit_tag :login%>
+

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'rspec-rails'
 RSpec.describe PinsController do
   describe "GET index" do
     it 'renders the index template' do
@@ -38,7 +37,7 @@ RSpec.describe PinsController do
         url: "http://railswizard.org",
         slug: "rails-wizard",
         text: "A fun and helpful Rails Resource",
-      resource_type: "rails"}
+      category_id: "2"}
     end
 
     after(:each) do

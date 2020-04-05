@@ -4,6 +4,7 @@ require 'rspec/rails'
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
+  config.render_views
   
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

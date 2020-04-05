@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users, except: [:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,10 +8,12 @@ Rails.application.routes.draw do
 
   #get "pins/name-:slug" => "pins#show_by_name"
   get "pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name' 
+  get 'signup' => "users#new", as: :signup
+
 
   resources :pins
   #READ
-  get "/library" => "pins#index"
+  get "library" => "pins#index"
   #CREATE
   get "pins_path" => "pins#new"
   post "pins_path" => "pins#create"
@@ -21,6 +24,13 @@ Rails.application.routes.draw do
   #### BUGS #####
   delete "/pins/:id" => "pins#destroy"
 
+
+
+######USERS#######
+#
+get "/users/new" => "pins#new"
+get "/login" => "users#login"
+post "/login" => "users#authenticate"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
