@@ -39,7 +39,7 @@ RSpec.describe UsersController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  #let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
@@ -137,5 +137,52 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to(users_url)
     end
   end
+
+
+  describe "GET login" do
+  it "renders the login view" do
+     get :login
+      expect(response).to render_template("login")
+  end
+end
+ 
+describe "POST login" do
+  before(:all) do
+    @user = User.create(email: "coder@skillcrush.com", password: "secret")
+    @valid_user_hash = {email: @user.email, password: @user.password}
+    @invalid_user_hash = {email: "", password: ""}
+  end
+ 
+  after(:all) do
+    if !@user.destroyed?
+      @user.destroy
+    end
+  end
+ 
+  it "renders the show view if params valid" do
+    post :authenticate, @valid_user_hash
+    # write expectation here
+    expect(response).to render_template("show")
+  end
+ 
+  it "populates @user if params valid" do 
+    post :authenticate, @valid_user_hash
+    # write expectation here
+    
+  end
+ 
+  it "renders the login view if params invalid" do
+    post :authenticate, @invalid_user_hash
+    # write expectation here     
+    expect(response).to render_template("login")
+  end
+ 
+  it "populates the @errors variable if params invalid" do
+    post :authenticate, @invalid_user_hash 
+    # write expectation here
+  end
+end
+
+
 
 end

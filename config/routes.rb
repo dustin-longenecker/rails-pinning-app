@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'pins#index'
   ######USERS#######
 #
-get "/users/new" => "pins#new"
+get "/users/new" => "users#new"
 get "/login" => "users#login"
 post "/login" => "users#authenticate"
 

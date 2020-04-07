@@ -9,25 +9,23 @@ class UsersController < ApplicationController
   def authenticate
     @auth_code = User.is_auth?(params[:email].downcase, params[:password])
     puts @auth_code.inspect
-
-    respond_to do |format|
-    case @auth_code
-      when 0
-        @user = User.where(`params[:email]`).first
-        redirect_to @user
-      when 1 
-        #@errors = "Wrong Password!"
-        #render :login
-        format.html { render :login }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      when 2
-        #@user.errors = "User does not exist!"
-        format.html { render :login}
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      else
-        #@user.errors = "SOMETHING WENT WRONG"
-    end
-  end
+      case @auth_code
+        when 0
+          @user = User.where(`params[:email]`).first
+          redirect_to @user
+        when 1 
+          @errors = "Wrong Password!"
+          render :login
+          #format.html { render :login }
+          #format.json { render json: @errors, status: :unprocessable_entity }
+        when 2
+          @errors = "User does not exist!"
+          render :login
+          #format.html { render :login}
+          #format.json { render json: @errors, status: :unprocessable_entity }
+        else
+          #@user.errors = "SOMETHING WENT WRONG"
+      end
   end
 
   # GET /users
