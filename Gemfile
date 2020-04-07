@@ -48,8 +48,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'rspec', '~> 3'
-  gem 'rspec-rails', '~> 3'
+ 
 
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   gem 'meta_request'
@@ -58,6 +57,10 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+   gem 'rspec', '~> 3'
+  gem 'rspec-rails', '~> 3'
+gem 'rails_helper'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

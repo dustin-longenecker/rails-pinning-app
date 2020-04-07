@@ -1,3 +1,6 @@
+require 'spec_helper'
+require 'rspec/rails'
+
 require "rails_helper"
 
 RSpec.describe UsersController, type: :routing do

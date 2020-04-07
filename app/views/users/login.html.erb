@@ -1,6 +1,18 @@
 <h2>LOGIN</h2>
-<%= form_tag "/login" %>
-<%= text_field_tag 'email', 'email', maxlength: 99, size: 20, class: "form-grp" %>
-<%= text_field_tag 'password', 'password', maxlength: 15, size: 20, class: "form-grp" %>
-<%= submit_tag :login%>
+<%= form_tag  do %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= text_field_tag :email, 'email', maxlength: 99, size: 20, class: "form-grp" %>
+<%= text_field_tag :password, 'password', maxlength: 15, size: 20, class: "form-grp" %>
+<%= submit_tag :login %>
+
+<%end%>
