@@ -7,18 +7,21 @@ Rails.application.routes.draw do
   root 'pins#index'
   ######USERS#######
 #
-get "/users/new" => "users#new"
+#get "/users/new" => "users#new"
+get "/users" => "users#index"
 get "/login" => "users#login"
 post "/login" => "users#authenticate"
 
   #get "pins/name-:slug" => "pins#show_by_name"
-  get "pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name' 
+  get "/pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name' 
+  get "/pins/:id" => "pins#show"
+
   get 'signup' => "users#new", as: :signup
 
 
   resources :pins
   #READ
-  get "library" => "pins#index"
+  get "/library" => "pins#index"
   #CREATE
   get "pins_path" => "pins#new"
   post "pins_path" => "pins#create"

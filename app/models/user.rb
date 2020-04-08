@@ -1,18 +1,16 @@
 class User < ActiveRecord::Base
 	has_many :pins
-	validates_presence_of :first_name, :last_name, :email, :password
+	#validates_presence_of :first_name, :last_name, :email, :password
 	validates_uniqueness_of :email
+	has_secure_password
 	def self.is_auth?(email, password)
-		user = User.where(email: email).first
-		if user.present?
-			if password === user.password
-				0
-			else
-			  	1
+		@user = User.find_by_email(email)
+		if @user.present?
+			if @user.authenticate(password)
+				return @user
 			end
-		else
-			2
 		end
+		return nil
 	end
 
 end

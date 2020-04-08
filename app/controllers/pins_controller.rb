@@ -17,9 +17,10 @@ class PinsController < ApplicationController
 
   def create
     @pin = Pin.create(pin_params)
-    @pin.slug = create_slug(@pin)
-    @pin.save
-    if @pin.persisted?
+    if @pin.slug.nil?
+      @pin.slug = create_slug(@pin)
+    end
+    if @pin.save
       redirect_to @pin
     else
       @errors = @pin.errors

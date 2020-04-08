@@ -1,21 +1,18 @@
 require 'rails_helper'
-require 'rspec/rails'
-require 'spec_helper'
-
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #pending "add some examples to (or delete) #{__FILE__}"
 
-  before(:all) do
-  @user = User.create(email: "coder@skillcrush", password: "password")
-end
+#   before(:all) do
+#   @user = User.create(email: "coder@skillcrush", password: "password")
+# end
 
-after(:all) do
-  if !@user.destroyed?
-    @user.destroy
-  end
-end
+# after(:all) do
+#   if !@user.destroyed?
+#     @user.destroy
+#   end
+# end
 
-it 'authenticates and returns a user when valid email and password passed in' do
-	 #@user.is_auth?(@user.email, @user.password)
-end
+# it 'authenticates and returns a user when valid email and password passed in' do
+# 	 #@user.is_auth?(@user.email, @user.password)
+# end
 end
