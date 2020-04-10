@@ -14,23 +14,24 @@ post "/login" => "users#authenticate"
 
   #get "pins/name-:slug" => "pins#show_by_name"
   get "/pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name' 
-  get "/pins/:id" => "pins#show"
 
-  get 'signup' => "users#new", as: :signup
+  get '/signup' => "users#new", as: :signup
 
 
   resources :pins
+ # get "/pins/:id" => "pins#show"
+
   #READ
   get "/library" => "pins#index"
   #CREATE
-  get "pins_path" => "pins#new"
-  post "pins_path" => "pins#create"
-  #UPDATE
-  get "edit_pin_path" => "pins#edit"
-  put "pin_path" => "pins#update"
-  #DELETE
-  #### BUGS #####
-  delete "/pins/:id" => "pins#destroy"
+  # get "pins_path" => "pins#new"
+  # post "pins_path" => "pins#create"
+  # #UPDATE
+  # get "edit_pin_path" => "pins#edit"
+  # get "edit_user_path" => "pins#edit"
+  # put "pin_path" => "pins#update"
+  # #DELETE
+  # delete "/pins/:id" => "pins#destroy"
 
 
 

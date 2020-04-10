@@ -7,16 +7,22 @@ RSpec.describe "Our Application Routes" do
 
   describe "GET /pins/name-:slug" do
     it 'renders the pins/show template' do
-      @pin = Pin.first
+      #@pin = Pin.first
+      @pin = FactoryBot.create(:pin)
+
       #puts @pin.nil?
       #puts @pin.inspect
-      post "/pins/#{@pin.slug}", params: {pin: Pin.first}
+      get "/pins/name-#{@pin.slug}", params: {pin: @pin}
       expect(response).to render_template("pins/show")
+      @pin.destroy
     end
     it 'populates the @pin variable with the appropriate pin' do
-      pin = Pin.first
-      get "/pins/#{pin.slug}"
-      expect(assigns[:pin]).to eq(pin)
+      #pin = Pin.first
+      @pin = FactoryBot.create(:pin)
+      
+      get "/pins/name-#{@pin.slug}"
+      expect(assigns[:pin]).to eq(@pin)
+      @pin.destroy
     end
 
   end
